@@ -28,6 +28,6 @@ Aplicación web que permite visualizar, agregar, eliminar y filtrar personajes d
 
 # Autora
 
-Valentina Schibilbain
-Tecnicatura Superior en Desarrollo de Software Multiplataforma
+Valentina Schibilbain  
+Tecnicatura Superior en Desarrollo de Software Multiplataforma  
 Instituto Politécnico Formosa - 2026
