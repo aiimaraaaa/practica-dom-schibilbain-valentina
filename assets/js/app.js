@@ -1,3 +1,4 @@
+//areglo de personajes - no modificar
 const personajes = [
 { id: 1, nombre: "A-Bomb", imagen:
 "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/1-a-bomb.jpg" },
@@ -11,15 +12,17 @@ const personajes = [
 "https://cdn.jsdelivr.net/gh/akabab/superhero-api@0.3.0/api/images/md/5-abraxas.jpg" },
 ];
 
-
+//seleccionando los elementos del HTML
 const galeria = document.querySelector("#galeria");
 const inputFiltro = document.querySelector("#inputFiltro");
 const btnFiltrar = document.querySelector("#btnFiltrar");
 
+//función que carga los personajes en la galería 
 const mostrarPersonajes = (lista) => {
     galeria.innerHTML = "";
 
     lista.forEach(personaje => {
+        //creo los elementos
         const col = document.createElement("div");
         const card = document.createElement("div");
         const img = document.createElement("img");
@@ -27,14 +30,14 @@ const mostrarPersonajes = (lista) => {
         const titulo = document.createElement("h5");
         const btnEliminar = document.createElement("button");
 
-
+        //agregue contenido a cada elemento
         img.src = personaje.imagen;
         img.alt = personaje.nombre;
         titulo.textContent = personaje.nombre;
         btnEliminar.textContent = "Eliminar";
         col.setAttribute("data-id", personaje.id);
 
-
+        //agrego clases de bootstrap
         col.className = "col-3 my-2";
         card.className = "card";
         img.className = "card-img-top";
@@ -42,7 +45,7 @@ const mostrarPersonajes = (lista) => {
         titulo.className = "card-title";
         btnEliminar.className = "btn btn-danger btn-eliminar";
 
-
+        //armo la estructura y agrego al dom
         cardBody.appendChild(titulo);
         cardBody.appendChild(btnEliminar);
         card.appendChild(img);
@@ -51,9 +54,10 @@ const mostrarPersonajes = (lista) => {
         galeria.appendChild(col);
     });
 };
-
+//cargo los personajes al abrir la página
 mostrarPersonajes(personajes);
 
+//filtro los personajes por nombre al hacer click en buscar
 btnFiltrar.addEventListener("click", () => {
     const textoBuscado = inputFiltro.value;
 
@@ -65,10 +69,40 @@ btnFiltrar.addEventListener("click", () => {
 });
 
 
-
+//elimino la card del personaje al hacer click en eliminar
 galeria.addEventListener("click", (e) => {
     if(e.target.classList.contains("btn-eliminar")) {
         const colMasCercano = e.target.closest(".col-3");
         colMasCercano.remove();
     }
 });
+
+
+//selecciono los elementos del formulario 
+const inputNombre = document.querySelector("#inputNombre");
+const inputImagen = document.querySelector("#inputImagen");
+const btnAgregar = document.querySelector("#btnAgregar");
+
+//agrego un nuevo personaje al hacer click en agregar
+btnAgregar.addEventListener("click", () => {
+    //obtengo valores de los inputs
+    const nuevoNombre = inputNombre.value;
+    const nuevaImagen = inputImagen.value;
+
+    //creo el nuevo objeto personaje
+    const nuevoPersonaje = {
+        id: personajes.length + 1,
+        nombre: nuevoNombre,
+        imagen: nuevaImagen,
+    };
+
+    //agrego el nuevo personaje al arreglo
+    personajes.push(nuevoPersonaje);
+
+    //vuelvo a cargar la página completa
+    mostrarPersonajes(personajes);
+
+    //limpio los inputs
+    inputNombre.value = "";
+    inputImagen.value = "";
+})
