@@ -63,3 +63,12 @@ btnFiltrar.addEventListener("click", () => {
 
     mostrarPersonajes(resultadoPersonajes);
 });
+
+
+
+galeria.addEventListener("click", (e) => {
+    if(e.target.classList.contains("btn-eliminar")) {
+        const colMasCercano = e.target.closest(".col-3");
+        colMasCercano.remove();
+    }
+});
