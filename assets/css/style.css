@@ -1,0 +1,37 @@
+/* estilos generales */
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+/* secciones */
+section {
+    background-color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* cards */
+.card {
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}
+
+/* hover en las cards */
+.card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+/* imagen de la card */
+.card-img-top {
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}

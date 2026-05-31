@@ -38,7 +38,7 @@ const mostrarPersonajes = (lista) => {
         col.setAttribute("data-id", personaje.id);
 
         //agrego clases de bootstrap
-        col.className = "col-3 my-2";
+        col.className = "col-12 col-sm-6 col-md-4 col-lg-3 my-2";
         card.className = "card";
         img.className = "card-img-top";
         cardBody.className = "card-body";
@@ -72,7 +72,7 @@ btnFiltrar.addEventListener("click", () => {
 //elimino la card del personaje al hacer click en eliminar
 galeria.addEventListener("click", (e) => {
     if(e.target.classList.contains("btn-eliminar")) {
-        const colMasCercano = e.target.closest(".col-3");
+        const colMasCercano = e.target.closest(".col-12");
         colMasCercano.remove();
     }
 });
