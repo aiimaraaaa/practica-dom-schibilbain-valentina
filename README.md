@@ -8,9 +8,9 @@ Aplicación web que permite visualizar, agregar, eliminar y filtrar personajes d
 
 ## Funcionalidades
 
--Renderizado de cards desde un arreglo de objetos.
--Filtro de personajes por nombre.
--Formulación para agregar nuevos personajes.
+-Renderizado de cards desde un arreglo de objetos.  
+-Filtro de personajes por nombre.  
+-Formulación para agregar nuevos personajes.  
 -Eliminación de personajes de la página.
 
 # Tecnologías utilizadas
