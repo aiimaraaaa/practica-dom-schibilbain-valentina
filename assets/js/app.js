@@ -21,38 +21,19 @@ const btnFiltrar = document.querySelector("#btnFiltrar");
 const mostrarPersonajes = (lista) => {
     galeria.innerHTML = "";
 
-    lista.forEach(personaje => {
-        //creo los elementos
-        const col = document.createElement("div");
-        const card = document.createElement("div");
-        const img = document.createElement("img");
-        const cardBody = document.createElement("div");
-        const titulo = document.createElement("h5");
-        const btnEliminar = document.createElement("button");
-
-        //agregue contenido a cada elemento
-        img.src = personaje.imagen;
-        img.alt = personaje.nombre;
-        titulo.textContent = personaje.nombre;
-        btnEliminar.textContent = "Eliminar";
-        col.setAttribute("data-id", personaje.id);
-
-        //agrego clases de bootstrap
-        col.className = "col-12 col-sm-6 col-md-4 col-lg-3 my-2";
-        card.className = "card";
-        img.className = "card-img-top";
-        cardBody.className = "card-body";
-        titulo.className = "card-title";
-        btnEliminar.className = "btn btn-danger btn-eliminar";
-
-        //armo la estructura y agrego al dom
-        cardBody.appendChild(titulo);
-        cardBody.appendChild(btnEliminar);
-        card.appendChild(img);
-        card.appendChild(cardBody);
-        col.appendChild(card);
-        galeria.appendChild(col);
-    });
+    lista.forEach(({ id, nombre, imagen }) => {
+    galeria.innerHTML += `
+        <div class="col-3 my-2" data-id=${id}>
+            <div class="card">
+                <img src=${imagen} class="card-img-top" alt=${nombre} style="height: 200px; object-fit: cover"/>
+                <div class="card-body">
+                    <h5 class="card-title">${nombre}</h5>
+                    <button class="btn btn-danger btn-eliminar">Eliminar</button>
+                </div>
+            </div>
+        </div>
+    `;
+});
 };
 //cargo los personajes al abrir la página
 mostrarPersonajes(personajes);
@@ -72,7 +53,7 @@ btnFiltrar.addEventListener("click", () => {
 //elimino la card del personaje al hacer click en eliminar
 galeria.addEventListener("click", (e) => {
     if(e.target.classList.contains("btn-eliminar")) {
-        const colMasCercano = e.target.closest(".col-12");
+        const colMasCercano = e.target.closest(".col-3");
         colMasCercano.remove();
     }
 });
