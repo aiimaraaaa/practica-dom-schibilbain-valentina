@@ -59,31 +59,23 @@ galeria.addEventListener("click", (e) => {
 });
 
 
-//selecciono los elementos del formulario 
-const inputNombre = document.querySelector("#inputNombre");
-const inputImagen = document.querySelector("#inputImagen");
-const btnAgregar = document.querySelector("#btnAgregar");
+const formulario = document.querySelector("#formulario");
 
-//agrego un nuevo personaje al hacer click en agregar
-btnAgregar.addEventListener("click", () => {
-    //obtengo valores de los inputs
-    const nuevoNombre = inputNombre.value;
-    const nuevaImagen = inputImagen.value;
+formulario.addEventListener("submit", (e) => {
+    e.preventDefault();
 
-    //creo el nuevo objeto personaje
+    const valorNombre = formulario.nombre.value;
+    const valorImagen = formulario.imagen.value;
+
+
     const nuevoPersonaje = {
         id: personajes.length + 1,
-        nombre: nuevoNombre,
-        imagen: nuevaImagen,
+        nombre: valorNombre,
+        imagen: valorImagen,
     };
 
-    //agrego el nuevo personaje al arreglo
+
     personajes.push(nuevoPersonaje);
-
-    //vuelvo a cargar la página completa
+    
     mostrarPersonajes(personajes);
-
-    //limpio los inputs
-    inputNombre.value = "";
-    inputImagen.value = "";
-})
+});
