@@ -37,24 +37,14 @@
       </section>
 
       <!--sección para agregar un personaje nuevo-->
-      <section class="mb-4">
-        <h5>Agregar personaje</h5>
-        <div class="input-group">
-          <input
-            type="text"
-            id="inputNombre"
-            class="form-control"
-            placeholder="Nombre"
-          />
-          <input
-            type="text"
-            id="inputImagen"
-            class="form-control"
-            placeholder="URL de imagen"
-          />
-          <button class="btn btn-success" id="btnAgregar">Agregar</button>
-        </div>
-      </section>
+      <form id="formulario" class="mb-4">
+  <h5>Agregar personaje</h5>
+  <div class="input-group">
+    <input type="text" name="nombre" class="form-control" placeholder="Nombre"/>
+    <input type="text" name="imagen" class="form-control" placeholder="URL de imagen"/>
+    <button type="submit" class="btn btn-success">Agregar</button>
+  </div>
+</form>
 
       <section>
         <div class="row" id="galeria"></div>
